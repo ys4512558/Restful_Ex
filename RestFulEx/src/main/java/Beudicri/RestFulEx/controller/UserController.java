@@ -50,4 +50,21 @@ public class UserController {
 
     }
 
+    @PostMapping("user/{id}")
+    public void postUserProfile(@PathVariable("id") String id,
+                                @RequestParam("name") String name,
+                                @RequestParam("phone") String phone,
+                                @RequestParam("address") String address){
+
+        UserProfile userProfile = userMap.get(id);
+        userProfile.setName(name);
+        userProfile.setPhone(phone);
+        userProfile.setAddress(address);
+    }
+
+    @DeleteMapping("/user/{id}")
+    public void deleteUserProfile(@PathVariable("id") String id){
+        userMap.remove(id);
+    }
+
 }
