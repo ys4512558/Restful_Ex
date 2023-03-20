@@ -22,6 +22,14 @@ public class UserController {
         userMap.put("3", new UserProfile("3", "홍길동3", "111-1113", "천안시 서북구3"));
     }
 
+
+    /**
+     * 일반적으로 사용하는 방식 Get, Post, Put, Delete
+     * GetMapping >> 데이터 조회
+     * PostMapping >> 데이터 수정
+     * PutMapping >> 데이터 생성
+     * DeleteMapping >> 데이터 삭제
+     */
     @GetMapping("/user/{id}") //여기서 {id}를 @PathVariable의 id로 인식하여 api호출
     public UserProfile getUserProfile(@PathVariable("id") String id){
         return userMap.get(id); //JSON형식으로 자동으로 리턴
